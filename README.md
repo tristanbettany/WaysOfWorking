@@ -1,15 +1,21 @@
 # Ways Of Working
 
-These ideas exists to detail the most ideal ways of working in a small non-agile web development team and may or may not
-align to your ideas. Some ideas have the potential to be based soley on personal opinion so if you think that is the 
-case please choose to ignore it. Take from these ideas what you believe would work for you or your organisation.
+This is a collection of ideas and advice which exists to detail the most ideal and realistic ways of working 
+in a small web development team and may or may not align to your ideas. The information should be relevant irrespective
+of your chose workflow (agile/waterfall, etc). 
 
->NOTE: This document assumes that somebody is looking to impliment ways of working and processes into their development
-team or project and do not already have one in place.
+The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
+they either dont work in their entirity or they dont cover anything other than code syntax.
+
+Some ideas here have the potential to be based soley on personal opinion so if you think that is the case please choose to 
+ignore it. Take from these ideas what you believe would work for you or your organisation.
 
 Although some of the rules below may be also fully or partially covered by standards in PHP-FIG, it is important to 
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
 ignored.
+
+>NOTE: This document assumes that somebody is looking to impliment ways of working and processes into their development
+team or project and do not already have one in place.
 
 ## Coding Standards
 
@@ -127,19 +133,19 @@ private bool $isActive;
 private bool $isTest;
 ```
 
+## Proceedures & Best Practises
+
 ### Boy Scouting
 
-The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be 
-adopted by all developers to help make sure that technical debt doesnt become a huge problem. 
+The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
+adopted by all developers to help make sure that technical debt doesnt become a huge problem.
 
-This means that all classes you make changes to when writing new features, should have a concious effort made to 
+This means that all classes you make changes to when writing new features, should have a concious effort made to
 cleanup any existing code and fix any technical debt within reason and scope of those classes. This includes changes
 to the code to make it meet company standards not previously set and stamping out bugs.
 
 All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
 technical tebt does not mount up.
-
-## Proceedures
 
 ### Commit only working code
 
@@ -166,3 +172,28 @@ When developing a new feature it is a good idea to add certain aspects of that f
 may recieve requests from the business to perform these tasks once the application is live, and you'll be pleased
 you made those commands then.
 
+### Pair coding
+
+Pair coding is not or everyone and doesnt work in all teams. It can sometimes require a strong bond and similar
+working style between 2 developers. When this rare situation is found it should be encouraged for solving complex 
+issues and debugging difficult mystical problems. THe power of 2 minds working together can be far better than 1 mind
+going round and round in circles.
+
+### Design and architechture
+
+Use the right tool for the right job, do not use tools just because it is new and on trend as that can lead to
+technical debt and/or security issues in the future. Make sure to use design patterns when they are needed to solve a 
+problem, and don't use the business you work for as a testing ground for new un-proven design patterns that may not 
+solve your problem.
+
+## Pull Requests
+
+### Submitting
+
+### Commenting
+
+### Merging
+
+## Code of Conduct
+
+Generally be good to one another, have time for your fellow developer and they will have time for you.
