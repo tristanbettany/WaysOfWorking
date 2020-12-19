@@ -139,6 +139,8 @@ to the code to make it meet company standards not previously set and stamping ou
 All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
 technical tebt does not mount up.
 
+## Proceedures
+
 ### Commit only working code
 
 The git tree should be traversable back in time without the codebase running into fatal exceptions due to incomplete 
@@ -146,9 +148,21 @@ features. When commiting code, think about how you break up the commits, sometim
 by chunk to create a git tree that flows nicley. Should you need to commit broken code to allow a fellow developer to
 help debug with you, tag the commit with `WIP:` and once solved, swiftly commit again the solution to that issue alone.
 
+### Testing
+
+All code created should have testing done using PHPUnit. When creating an API, you will need integration tests for each
+endpoint, including unit tests for the individual sections of code. When consuming APIs you will need to either stub 
+the API endpoints your using or get hold of a sandboxing environment for that API which you can use in local.
+
+You should be hitting as many edge cases in testing as possible both happy and unhappy paths. Your tests should be
+structured in that 1 feature or unit is tested per file with multiple scenarios in the file as seperate test methods.
+
+For example it is not recommended to have and `OrderTest` file which has mutiple test scenarios that create, add, edit.
+You should infact have a `CreateOrderTest` which has multiple scenarios for creating a test correctly and incorrectly.
+
 ### Automate proceedures with CLI commands
 
 When developing a new feature it is a good idea to add certain aspects of that feature as CLI commands. Sometimes you 
-may recieve requests from the business to perform these tasks once the application is live, and you'll pleased
+may recieve requests from the business to perform these tasks once the application is live, and you'll be pleased
 you made those commands then.
 
