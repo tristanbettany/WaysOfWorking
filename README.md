@@ -135,6 +135,9 @@ private bool $isTest;
 
 ## Proceedures & Best Practises
 
+There are a number of proceedures and best practises which can help improve you code quality and how you develop as a
+team, here are some of the best ive picked up over the years.
+
 ### Boy Scouting
 
 The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
@@ -154,7 +157,7 @@ features. When commiting code, think about how you break up the commits, sometim
 by chunk to create a git tree that flows nicley. Should you need to commit broken code to allow a fellow developer to
 help debug with you, tag the commit with `WIP:` and once solved, swiftly commit again the solution to that issue alone.
 
-### Testing
+### Aiming for high Code Coverage by testing all edge cases
 
 All code created should have testing done using PHPUnit. When creating an API, you will need integration tests for each
 endpoint, including unit tests for the individual sections of code. When consuming APIs you will need to either stub 
@@ -179,7 +182,13 @@ working style between 2 developers. When this rare situation is found it should 
 issues and debugging difficult mystical problems. THe power of 2 minds working together can be far better than 1 mind
 going round and round in circles.
 
-### Design and architechture
+### Plan your design and architechture
+
+A well planned architechture for an application is much better than unplanned. There is no shame in spending the 
+first few days of developing a new feature or application, thinking through ideas, architechture and prototyping. 
+Jumping straight into creating a new feature or application will inevitably have you coding yourself into a corner and 
+you will need to spend time refactoring aspects as you move further into the feature/s. Planning it all out to start with
+avoids that, even if this means getting a pen to paper and drawing some ERD's.
 
 Use the right tool for the right job, do not use tools just because it is new and on trend as that can lead to
 technical debt and/or security issues in the future. Make sure to use design patterns when they are needed to solve a 
@@ -188,11 +197,60 @@ solve your problem.
 
 ## Pull Requests
 
+A development team generally leans heavily on pull requests to assure code quality and to make sure that work is done 
+on time. Lets see the best way PR's can be managed to keep all the cogs moving.
+
 ### Submitting
 
-### Commenting
+When submitting a pull request the last thing a developer reviewing it wants is to come to review it and find that the 
+branch is out of date with the target branch and the description is lacking details of what you have done.
 
-### Merging
+Make sure that you are keeping your PRs up to date with the target branch, until they have been reviewed. To do this 
+you can do the following:
+
+```
+git fetch
+git checkout your-branch-in-for-pr
+git merge --no-ff origin/target-branch
+```
+
+When it comes to a description, its all very well and good linking to a ticket that was the request for the new feature,
+however this could be and generally will be a rather high level description of the request. It's your responsability to
+describe the technical implimentation you chose and the reasons behind it. Maybe some limitations as to why you didnt choose
+an obvious one and went with something more complex. You should also think about any special requirements for testing
+and will the reviewer need to know this. Also for an audit trail its wise to include a screenshot for any visual changes
+you made.
+
+### Reviewing & Commenting
+
+To make sure to keep on top of PR's it is advisable to reserve 30 mins at the end of each day to review them.
+Each PR should be reviewed for coding standards, syntx issues, and of course domain/business logic. 
+
+Commenting on PR's can be tricky, too often developers can comment on PRs with little thought or concern for the person 
+recieving the comment. If the developer has spent alot of time working on it, some comments can feel quite grating and 
+can be taken to heart. Due to this, always make sure to do your best to convey tone of voice in a PR comment using emojis,
+and if you are trying to explain something particularly complex maybe even follow up the comment with a message on Teams.
+
+Sometimes you may notice a mistake has been made in a PR which may have simply been an oversight and could potentially be
+slightly embaresing to mention publicly in PR comments. This can sometimes then be best to contact the developer directly via
+Teams to let them know some improvements they can make before you do an official review.
+
+All of this helps avoid any confict and toxic situations in comments sections of PRs.
+
+### Approval & Merging
+
+This section of PRs should be fairly simple. It is recommended that when there are at least 2 (or the amount the business is happy with) 
+approvals from reviewers, then anyone should be able to merge it. If an update to that PR is made after the approvals quota
+is reached then the quota is reset and the approval process restarts before you can merge.
+
+You should always merge in a way that maintains the hillocks in the git tree, and remove the branch after merging.
+You can do this like so:
+
+```
+git co target-branch
+git merge --no-ff branch-to-merge
+git branch -D branch-to-merge
+```
 
 ## Code of Conduct
 
