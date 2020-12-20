@@ -2,7 +2,7 @@
 
 This is a collection of ideas and advice which exists to detail the most ideal and realistic ways of working 
 in a small web development team and may or may not align to your ideas. The information should be relevant irrespective
-of your chose workflow (agile/waterfall, etc). 
+of your chosen workflow (agile/waterfall, etc). 
 
 The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
 they either dont work in their entirity or they dont cover anything other than code syntax.
