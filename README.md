@@ -72,6 +72,51 @@ top of a class.
 Lines should not exceed 120 chars long to avoid the need to scroll sideways. This can be a pain when people dont 
 have a mouse that allows sideways scrolling. 
 
+### Be strict
+
+Your control logic should always be written stric so as to avoid ambiguity and introduction of bugs. As a developer
+you should always know exactly what your logic is comparing against and never should allow the code to almost guess.
+By that I mean DONT do the following things:
+
+```php
+if ($val) {
+    //do logic
+}
+```
+
+Doing this allows your logic to run if the value is truthy which can be a boolean true or any string or any object or
+any array. Pretty much most things that arent boolean false or null. The reason this is bad is because if something 
+goes wrong elsewhere in the application and the `$val` gets set to something you dont expect your logic still runs
+either making it seem like nothing is wrong or causing a fatal further down the line.
+
+The same applies to the following
+
+```php
+if (!$val) {
+    //do logic
+}
+```
+
+Notice the difference is the exclimation mark. This reverses the logic to check for falsey values, so as said before
+the same problems exist as above with the added problem of the exclimation mark is very! easy to miss when a developer 
+is scanning it and can cause errors in additional logic added to the same class or control logic where the developer
+didnt realise the logic was that way round.
+
+The fix is to always! be strict with your checks, for example like this:
+
+```php
+if ($val === true) {
+    //do logic
+}
+if ($val === 'a string') {
+    //do logic
+}
+```
+
+The advantage of doing this is when an error occurs you will be taken to the correct location when debugging and no doubt
+will find it easier to work out how to fix this logic. It is also much more verbose as to what is going on in your control
+logic.
+
 ### Method Readability
 
 A method should be able to be read predominantly by scanning down, and marginally left to right. Increasing scanning
@@ -137,6 +182,22 @@ private bool $isTest;
 
 There are a number of proceedures and best practises which can help improve you code quality and how you develop as a
 team, here are some of the best ive picked up over the years.
+
+### Throw Exceptions
+
+Make sure that as you are writing code you are thinking about all possible edge cases that could happen which may not
+be something that your code should handle and make sure to throw exceptions for it. By doing so these exceptions can be
+caught at a later point and transformed into something more friendly for the user where if the application is an API for
+example, this leaves the consumer of the API in a position where they are to handle it and avoid hitting that exception.
+Effectivley pushing that problem onto them and not you.
+
+The more exceptions you throw on edge cases can also help in debugging too.
+
+### Catch & Log
+
+Particularly when making external requests consuming APIs or running jobs, make sure you are dropping in logs if an
+exception is thrown. Should the company you work for have a plan wth a log management service such as Rollbar you will
+be able to easily see these errors and be alerted of problems. This will make debugging much much easier.
 
 ### Boy Scouting
 
@@ -254,4 +315,7 @@ git branch -D branch-to-merge
 
 ## Code of Conduct
 
-Generally be good to one another, have time for your fellow developer and they will have time for you.
+- Generally be good to one another, and don't take life too seriously. 
+- Have time for your fellow developer and they will have time for you.
+- Respect other developers opinions and they may respect yours.
+- Remember that there is always someone out there you can learn from irregardless of yours or their level.
