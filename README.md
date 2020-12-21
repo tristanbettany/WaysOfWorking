@@ -171,6 +171,11 @@ setName();
 isLive();
 ```
 
+Often you come across methods which the domain logic inside them doesnt point towards a getter or a setter. Instead
+they point more towards something like `calculateFoo()` or `processFoo()`. These sitations often cannot be avoided,
+however it's good to think about if the method `processPriceFromInput()` for instance could actually just be named
+`getPrice()`.
+
 All boolean variables should be prefixed with is. For example:
 
 ```php
