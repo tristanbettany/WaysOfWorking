@@ -308,7 +308,7 @@ You should always merge in a way that maintains the hillocks in the git tree, an
 You can do this like so:
 
 ```
-git co target-branch
+git checkout target-branch
 git merge --no-ff branch-to-merge
 git branch -D branch-to-merge
 ```
