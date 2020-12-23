@@ -188,6 +188,17 @@ private bool $isTest;
 There are a number of proceedures and best practises which can help improve you code quality and how you develop as a
 team, here are some of the best ive picked up over the years.
 
+### Code SOLID
+
+I wont explain solid here but the gist of it can generally be summed up by saying `be aware of seperation of concerns`,
+read more about it here - https://en.wikipedia.org/wiki/SOLID
+
+### Code DRY
+
+Coding DRY means `Dont Reapeat Yourself`, which sometimes is harder said than done. This though can be accomplished
+with the boy scouting practise which allows you to cleanup code after its done incrimentally. So here you should be
+abstracting and DRYing up code either as you go along and/or part of doing Boyscouting.
+
 ### Throw Exceptions
 
 Make sure that as you are writing code you are thinking about all possible edge cases that could happen which may not
