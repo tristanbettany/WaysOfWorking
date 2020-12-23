@@ -329,6 +329,32 @@ git merge --no-ff branch-to-merge
 git branch -D branch-to-merge
 ```
 
+## Managing Internal Dependancies
+
+Managing internal dependancies can be tricky depending on your companies current workflow. Even using modern tools it still can 
+be a bit of a bottleneck on workflow and can be difficult to manage between the development team and the business.
+
+## Composer
+
+Ideally composer should be used to manage internal PHP dependancies. All dependancies should be listed in your composer.json
+file against a tag release of the relevant dependancy. dev-master should be avoided being used including avoiding using other
+development/feature/bugfix branches.
+
+The way this works is that if you have a main project that depends on another project of shared classes and you have worked
+on both projects to ultimatly create a feature on the main project then you must wait before your pull request on the 
+shared project is merged and added into a tag release so you can update the main projects composer.json files tag release.
+Once that is update that pull request can be merged into the main project.
+
+This avoids the main project ever ending up becoming broken due to invalid or old dependancies. During active 
+development of a feature dependancies should be symlinked in the vendor folder to avoid modifications of the composer.json
+file to include development branches. THis also removes the risk of those changes being merged which would cause a failure
+as soon as the development branch is merged and removed.
+
+## Disadvantages and Benefits
+
+THe above composer details can stiffle workflow and slowdown getting jobs done fast, however it can seriously reduce
+error rates, and increase trust of application security in the live environments. 
+
 ## Code of Conduct
 
 - Generally be good to one another, and don't take life too seriously. 
