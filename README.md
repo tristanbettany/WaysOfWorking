@@ -272,6 +272,13 @@ technical debt and/or security issues in the future. Make sure to use design pat
 problem, and don't use the business you work for as a testing ground for new un-proven design patterns that may not 
 solve your problem.
 
+## Git Flow
+
+Git Flow should be used where acceptable to improve collaboration on projects in the team and make deployments
+easier to manage.
+
+More details on Git flow caqn be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
 ## Pull Requests
 
 A development team generally leans heavily on pull requests to assure code quality and to make sure that work is done 
