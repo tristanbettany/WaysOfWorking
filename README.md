@@ -277,7 +277,7 @@ solve your problem.
 Git Flow should be used where acceptable to improve collaboration on projects in the team and make deployments
 easier to manage.
 
-More details on Git flow caqn be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+More details on Git flow can be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
 ## Pull Requests
 
@@ -359,7 +359,7 @@ as soon as the development branch is merged and removed.
 
 ## Disadvantages and Benefits
 
-THe above composer details can stiffle workflow and slowdown getting jobs done fast, however it can seriously reduce
+The above composer details can stiffle workflow and slowdown getting jobs done fast, however it can seriously reduce
 error rates, and increase trust of application security in the live environments. 
 
 ## Code of Conduct
