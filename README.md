@@ -324,8 +324,10 @@ All of this helps avoid any confict and toxic situations in comments sections of
 ### Approval & Merging
 
 This section of PRs should be fairly simple. It is recommended that when there are at least 2 (or the amount the business is happy with) 
-approvals from reviewers, then anyone should be able to merge it. If an update to that PR is made after the approvals quota
-is reached then the quota is reset and the approval process restarts before you can merge.
+approvals from reviewers which should come from a collection of developers picked by the company.
+
+Senior developers should then be able to merge it once these requirements have been met. If an update to that PR is made after the approvals quota
+is reached then the quota is reset and the approval process restarts before a merge can be completed.
 
 You should always merge in a way that maintains the hillocks in the git tree, and remove the branch after merging.
 You can do this like so:
