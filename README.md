@@ -354,7 +354,7 @@ Once that is update that pull request can be merged into the main project.
 
 This avoids the main project ever ending up becoming broken due to invalid or old dependancies. During active 
 development of a feature dependancies should be symlinked in the vendor folder to avoid modifications of the composer.json
-file to include development branches. THis also removes the risk of those changes being merged which would cause a failure
+file to include development branches. This also removes the risk of those changes being merged which would cause a failure
 as soon as the development branch is merged and removed.
 
 ## Disadvantages and Benefits
