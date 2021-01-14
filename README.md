@@ -7,8 +7,9 @@ of your chosen workflow (agile/waterfall, etc).
 The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
 they either dont work in their entirity or they dont cover anything other than code syntax.
 
-Some ideas here have the potential to be based soley on personal opinion so if you think that is the case please choose to 
-ignore it. Take from these ideas what you believe would work for you or your organisation.
+Some ideas here may have the potential to be based soley on the personal opinion of the author and would not correctly reflect the opinions of 
+Precision Proco Group. If you think that is the case please choose to ignore it. Take from these ideas what you believe would 
+work for you or your organisation.
 
 Although some of the rules below may be also fully or partially covered by standards in PHP-FIG, it is important to 
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
@@ -19,7 +20,7 @@ team or project and do not already have one in place.
 
 ## Coding Standards
 
-Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
+Development Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
 development team and the business. These rules should not just blindly follow PSR rules however also integrate 
 styles that the development team like to adopt.
 
@@ -49,7 +50,7 @@ private, unless the intent is for the class to be extended and those methods to 
 ### Whitespace & dead code
 
 There should always be 1 blank line at the bottom of every file. Not all IDEs may enforce this so make sure to check 
-your IDE is configured correctly. You can also set this up in `.gitattributes`. Within methods there should not be any 
+your IDE is configured correctly. You can also set this up in `.editorconfig`. Within methods there should not be any 
 stray linebreaks that do not increase readability. For example line breaks should exist to seperate sections of control 
 logic. 
 
@@ -186,7 +187,19 @@ private bool $isTest;
 ## Proceedures & Best Practises
 
 There are a number of proceedures and best practises which can help improve you code quality and how you develop as a
-team, here are some of the best ive picked up over the years.
+team, here are some of the best the team has picked up over the years.
+
+### Boy Scouting
+
+The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
+adopted by all developers to help make sure that technical debt doesnt become a huge problem.
+
+This means that all classes you make changes to when writing new features, should have a concious effort made to
+cleanup any existing code and fix any technical debt within reason and scope of those classes. This includes changes
+to the code to make it meet company standards not previously set and stamping out bugs.
+
+All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
+technical tebt does not mount up.
 
 ### Code SOLID
 
@@ -214,18 +227,6 @@ The more exceptions you throw on edge cases can also help in debugging too.
 Particularly when making external requests consuming APIs or running jobs, make sure you are dropping in logs if an
 exception is thrown. Should the company you work for have a plan wth a log management service such as Rollbar you will
 be able to easily see these errors and be alerted of problems. This will make debugging much much easier.
-
-### Boy Scouting
-
-The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
-adopted by all developers to help make sure that technical debt doesnt become a huge problem.
-
-This means that all classes you make changes to when writing new features, should have a concious effort made to
-cleanup any existing code and fix any technical debt within reason and scope of those classes. This includes changes
-to the code to make it meet company standards not previously set and stamping out bugs.
-
-All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
-technical tebt does not mount up.
 
 ### Commit only working code
 
@@ -278,6 +279,15 @@ Git Flow should be used where acceptable to improve collaboration on projects in
 easier to manage.
 
 More details on Git flow can be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
+## Git Commits
+
+Commit messages should be short clear and concise, with no passive agressive context towards other developers or situations
+in the company.
+
+Commits Should always be small and attempt to contain code that performs only 1 job (Seperation of concerns).
+
+Commits should NEVER! be made directly to master or develop, oh and dont force push ever!
 
 ## Pull Requests
 
