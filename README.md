@@ -287,7 +287,7 @@ in the company.
 
 Commits Should always be small and attempt to contain code that performs only 1 job (Seperation of concerns).
 
-Commits should NEVER! be made directly to master or develop, oh and dont force push ever!
+Commits should NEVER be made directly to master or develop, oh and dont force push ever!
 
 ## Pull Requests
 
