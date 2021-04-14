@@ -177,12 +177,15 @@ they point more towards something like `calculateFoo()` or `processFoo()`. These
 however it's good to think about if the method `processPriceFromInput()` for instance could actually just be named
 `getPrice()`.
 
-All boolean variables should be prefixed with is. For example:
+All boolean variables should ideally be prefixed with is. For example:
 
 ```php
 private bool $isActive;
 private bool $isTest;
 ```
+
+In some cases you may find the necessity to prefix them with `should` or `has` or `can`, dependant on the situation.
+Often this would be the naming convention for a method that may combine the rseult of checking multiple boolean values. 
 
 ## Proceedures & Best Practises
 
