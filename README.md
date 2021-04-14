@@ -236,7 +236,8 @@ be able to easily see these errors and be alerted of problems. This will make de
 The git tree should be traversable back in time without the codebase running into fatal exceptions due to incomplete 
 features. When commiting code, think about how you break up the commits, sometimes commiting file by file or even chuck
 by chunk to create a git tree that flows nicley. Should you need to commit broken code to allow a fellow developer to
-help debug with you, tag the commit with `WIP:` and once solved, swiftly commit again the solution to that issue alone.
+help debug with you, prefix the commit with `WIP:`, `[WIP]`, or `WIP -` and once solved, swiftly commit again the solution 
+to that issue alone.
 
 ### Aiming for high Code Coverage by testing all edge cases
 
@@ -285,12 +286,38 @@ More details on Git flow can be found here - https://www.atlassian.com/git/tutor
 
 ## Git Commits
 
-Commit messages should be short clear and concise, with no passive agressive context towards other developers or situations
-in the company.
+The following outlines some guidelines of how to break up commits and write git commit messages that may possibly end up 
+helping you in the future.
 
-Commits Should always be small and attempt to contain code that performs only 1 job (Seperation of concerns).
+ - Commits should always be small and attempt to contain code that performs only 1 job (Seperation of concerns). This will 
+ help in the future when you may need to cherry pick small portions of code from one branch to another.
+ - Commits should never contain broken code unless you absolutely have to. See the section above https://github.com/PrecisionProcoGroup/WaysOfWorking#commit-only-working-code
+ - All commit messages should be clear and concise with no ambiguity
+ - A commit message subject should always contain enough context to understand the actions of the developer and the impact 
+ of the code contained in the commit, for more detail use the commit message body.
+ - A commit message subject should not contain the word `and`, when it is used it may signify you need a seperate commit. This rule should
+ not take precidence over the rule of never commiting broken code, in that case usage of the word `and` is fine.
+ - A commit message subject must attempt where possible to finish the scentance of `It`, `It will`, or `It has`. When choosing 1 of the 3 to complete for your work,
+ try to maintain consistancy. Examples can be seen below where highlighted text would become the commit message subject.
+    - It `Fixes my problem`
+    - It will `Fix my problem`
+    - It has `Fixed my problem`
+    - It `Adds a new feature`
+    - It will `Add a new feature`
+    - It has `Added a new feature`
+    - It `Updates my existing feature`
+    - It will `Update my existing feature`
+    - It has `Updated my existing feature`
+ - Commit message subjects should never be finished with a period
+ - A commit message subject should not exceed 50 chars
+ - All lines of a commit message body should be wrapped at 72 chars
+ - A commit message body must be seperated from the commit message subject by a single blank line
+ - If using JIRA for project management, it is ideal to prefix all commit message subjects in square brackets with the ticket number `[CLC-123]`. 
+ This will provide a link to the ticket in JIRA directly from the commit.
+ - All commit messages should have no passive agressive context towards other developers or situations in the company.
+ - Commits should never be made directly to master or develop, oh and dont force push ever!
 
-Commits should NEVER be made directly to master or develop, oh and dont force push ever!
+ > *TIP*: set up a default commit message template in your git config to help you adhear to all these rules
 
 ## Pull Requests
 
