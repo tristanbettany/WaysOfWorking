@@ -314,6 +314,8 @@ helping you in the future.
  - A commit message body must be seperated from the commit message subject by a single blank line
  - If using JIRA for project management, it is ideal to prefix all commit message subjects in square brackets with the ticket number `[CLC-123]`. 
  This will provide a link to the ticket in JIRA directly from the commit.
+ - When making commits which make changes from feedback on a PR/MR, make sure to commit each change independently following the rules outlined here,
+ do not group into a single commit called "PR Feedback" for example as this is not useful to the git history and anyone navigating the git log. 
  - All commit messages should have no passive agressive context towards other developers or situations in the company.
  - Commits should never be made directly to master or develop, oh and dont force push ever!
 
