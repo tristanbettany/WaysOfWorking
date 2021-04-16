@@ -312,6 +312,7 @@ helping you in the future.
  - A commit message subject should not exceed 50 chars
  - All lines of a commit message body should be wrapped at 72 chars
  - A commit message body must be seperated from the commit message subject by a single blank line
+ - Commits should be written in sentence case, see details here - https://en.wikipedia.org/wiki/Letter_case#Sentence_case
  - If using JIRA for project management, it is ideal to prefix all commit message subjects in square brackets with the ticket number `[CLC-123]`. 
  This will provide a link to the ticket in JIRA directly from the commit.
  - When making commits which make changes from feedback on a PR/MR, make sure to commit each change independently following the rules outlined here,
