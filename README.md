@@ -7,8 +7,9 @@ of your chosen workflow (agile/waterfall, etc).
 The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
 they either dont work in their entirity or they dont cover anything other than code syntax.
 
-Some ideas here have the potential to be based soley on personal opinion so if you think that is the case please choose to 
-ignore it. Take from these ideas what you believe would work for you or your organisation.
+Some ideas here may have the potential to be based soley on the personal opinion of the author and would not correctly reflect the opinions of 
+Precision Proco Group. If you think that is the case please choose to ignore it. Take from these ideas what you believe would 
+work for you or your organisation.
 
 Although some of the rules below may be also fully or partially covered by standards in PHP-FIG, it is important to 
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
@@ -19,7 +20,7 @@ team or project and do not already have one in place.
 
 ## Coding Standards
 
-Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
+Development Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
 development team and the business. These rules should not just blindly follow PSR rules however also integrate 
 styles that the development team like to adopt.
 
@@ -49,7 +50,7 @@ private, unless the intent is for the class to be extended and those methods to 
 ### Whitespace & dead code
 
 There should always be 1 blank line at the bottom of every file. Not all IDEs may enforce this so make sure to check 
-your IDE is configured correctly. You can also set this up in `.gitattributes`. Within methods there should not be any 
+your IDE is configured correctly. You can also set this up in `.editorconfig`. Within methods there should not be any 
 stray linebreaks that do not increase readability. For example line breaks should exist to seperate sections of control 
 logic. 
 
@@ -176,17 +177,32 @@ they point more towards something like `calculateFoo()` or `processFoo()`. These
 however it's good to think about if the method `processPriceFromInput()` for instance could actually just be named
 `getPrice()`.
 
-All boolean variables should be prefixed with is. For example:
+All boolean variables should ideally be prefixed with is. For example:
 
 ```php
 private bool $isActive;
 private bool $isTest;
 ```
 
+In some cases you may find the necessity to prefix them with `should` or `has` or `can`, dependant on the situation.
+Often this would be the naming convention for a method that may combine the rseult of checking multiple boolean values. 
+
 ## Proceedures & Best Practises
 
 There are a number of proceedures and best practises which can help improve you code quality and how you develop as a
-team, here are some of the best ive picked up over the years.
+team, here are some of the best the team has picked up over the years.
+
+### Boy Scouting
+
+The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
+adopted by all developers to help make sure that technical debt doesnt become a huge problem.
+
+This means that all classes you make changes to when writing new features, should have a concious effort made to
+cleanup any existing code and fix any technical debt within reason and scope of those classes. This includes changes
+to the code to make it meet company standards not previously set and stamping out bugs.
+
+All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
+technical tebt does not mount up.
 
 ### Code SOLID
 
@@ -215,24 +231,13 @@ Particularly when making external requests consuming APIs or running jobs, make 
 exception is thrown. Should the company you work for have a plan wth a log management service such as Rollbar you will
 be able to easily see these errors and be alerted of problems. This will make debugging much much easier.
 
-### Boy Scouting
-
-The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
-adopted by all developers to help make sure that technical debt doesnt become a huge problem.
-
-This means that all classes you make changes to when writing new features, should have a concious effort made to
-cleanup any existing code and fix any technical debt within reason and scope of those classes. This includes changes
-to the code to make it meet company standards not previously set and stamping out bugs.
-
-All this ensures that whenever a new feature is worked on improvments to existing code always comes along with it and
-technical tebt does not mount up.
-
 ### Commit only working code
 
 The git tree should be traversable back in time without the codebase running into fatal exceptions due to incomplete 
 features. When commiting code, think about how you break up the commits, sometimes commiting file by file or even chuck
 by chunk to create a git tree that flows nicley. Should you need to commit broken code to allow a fellow developer to
-help debug with you, tag the commit with `WIP:` and once solved, swiftly commit again the solution to that issue alone.
+help debug with you, prefix the commit with `WIP:`, `[WIP]`, or `WIP -` and once solved, swiftly commit again the solution 
+to that issue alone.
 
 ### Aiming for high Code Coverage by testing all edge cases
 
@@ -279,6 +284,44 @@ easier to manage.
 
 More details on Git flow can be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
+## Git Commits
+
+The following outlines some guidelines of how to break up commits and write git commit messages that may possibly end up 
+helping you in the future.
+
+ - Commits should always be small and attempt to contain code that performs only 1 job (Seperation of concerns). This will 
+ help in the future when you may need to cherry pick small portions of code from one branch to another.
+ - Commits should never contain broken code unless you absolutely have to. See the section above https://github.com/PrecisionProcoGroup/WaysOfWorking#commit-only-working-code
+ - All commit messages should be clear and concise with no ambiguity
+ - A commit message subject should always contain enough context to understand the actions of the developer and the impact 
+ of the code contained in the commit, for more detail use the commit message body.
+ - A commit message subject should not contain the word `and`, when it is used it may signify you need a seperate commit. This rule should
+ not take precidence over the rule of never commiting broken code, in that case usage of the word `and` is fine.
+ - A commit message subject must attempt where possible to finish the scentance of `It`, `It will`, or `It has`. When choosing 1 of the 3 to complete for your work,
+ try to maintain consistancy. Examples can be seen below where highlighted text would become the commit message subject.
+    - It `Fixes my problem`
+    - It will `Fix my problem`
+    - It has `Fixed my problem`
+    - It `Adds a new feature`
+    - It will `Add a new feature`
+    - It has `Added a new feature`
+    - It `Updates my existing feature`
+    - It will `Update my existing feature`
+    - It has `Updated my existing feature`
+ - Commit message subjects should never be finished with a period
+ - A commit message subject should not exceed 50 chars
+ - All lines of a commit message body should be wrapped at 72 chars
+ - A commit message body must be seperated from the commit message subject by a single blank line
+ - Commits should be written in sentence case, see details here - https://en.wikipedia.org/wiki/Letter_case#Sentence_case
+ - If using JIRA for project management, it is ideal to prefix all commit message subjects in square brackets with the ticket number `[CLC-123]`. 
+ This will provide a link to the ticket in JIRA directly from the commit.
+ - When making commits which make changes from feedback on a PR/MR, make sure to commit each change independently following the rules outlined here,
+ do not group into a single commit called "PR Feedback" for example as this is not useful to the git history and anyone navigating the git log. 
+ - All commit messages should have no passive agressive context towards other developers or situations in the company.
+ - Commits should never be made directly to master or develop, oh and dont force push ever!
+
+ > *TIP*: set up a default commit message template in your git config to help you adhear to all these rules
+
 ## Pull Requests
 
 A development team generally leans heavily on pull requests to assure code quality and to make sure that work is done 
@@ -324,8 +367,10 @@ All of this helps avoid any confict and toxic situations in comments sections of
 ### Approval & Merging
 
 This section of PRs should be fairly simple. It is recommended that when there are at least 2 (or the amount the business is happy with) 
-approvals from reviewers, then anyone should be able to merge it. If an update to that PR is made after the approvals quota
-is reached then the quota is reset and the approval process restarts before you can merge.
+approvals from reviewers which should come from a collection of developers picked by the company.
+
+Senior developers should then be able to merge it once these requirements have been met. If an update to that PR is made after the approvals quota
+is reached then the quota is reset and the approval process restarts before a merge can be completed.
 
 You should always merge in a way that maintains the hillocks in the git tree, and remove the branch after merging.
 You can do this like so:
