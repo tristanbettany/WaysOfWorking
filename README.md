@@ -7,9 +7,8 @@ of your chosen workflow (agile/waterfall, etc).
 The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
 they either dont work in their entirity or they dont cover anything other than code syntax.
 
-Some ideas here may have the potential to be based soley on the personal opinion of the author and would not correctly reflect the opinions of 
-Precision Proco Group. If you think that is the case please choose to ignore it. Take from these ideas what you believe would 
-work for you or your organisation.
+Some ideas here may have the potential to be based soley on the personal opinion of the author, If you think that is the 
+case please choose to ignore it. Take from these ideas what you believe would work for you or your organisation.
 
 Although some of the rules below may be also fully or partially covered by standards in PHP-FIG, it is important to 
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
@@ -400,7 +399,8 @@ Once that is update that pull request can be merged into the main project.
 This avoids the main project ever ending up becoming broken due to invalid or old dependancies. During active 
 development of a feature dependancies should be symlinked in the vendor folder to avoid modifications of the composer.json
 file to include development branches. This also removes the risk of those changes being merged which would cause a failure
-as soon as the development branch is merged and removed.
+as soon as the development branch is merged and removed. This symlinking process can sometimes cause issues with piplines, testing,
+and multiple developers working on 1 project so should be avoided in that scenario.
 
 ## Disadvantages and Benefits
 
