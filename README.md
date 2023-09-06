@@ -19,6 +19,9 @@ team or project and do not already have one in place.
 
 ## Coding Standards
 
+> NOTE: All coding standards in this document are directed towards a **PHP development team**. A lot of the coding standards
+> are not needed or make no sense in other more comprihensive languages such as C++ or C#
+
 Development Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
 development team and the business. These rules should not just blindly follow PSR rules however also integrate 
 styles that the development team like to adopt.
@@ -74,7 +77,7 @@ have a mouse that allows sideways scrolling.
 
 ### Be strict
 
-Your control logic should always be written stric so as to avoid ambiguity and introduction of bugs. As a developer
+Your control logic should always be written strict so as to avoid ambiguity and introduction of bugs. As a developer
 you should always know exactly what your logic is comparing against and never should allow the code to almost guess.
 By that I mean DONT do the following things:
 
@@ -290,7 +293,7 @@ helping you in the future.
 
  - Commits should always be small and attempt to contain code that performs only 1 job (Seperation of concerns). This will 
  help in the future when you may need to cherry pick small portions of code from one branch to another.
- - Commits should never contain broken code unless you absolutely have to. See the section above https://github.com/PrecisionProcoGroup/WaysOfWorking#commit-only-working-code
+ - Commits should never contain broken code unless you absolutely have to. See the section above https://github.com/tristanbettany/WaysOfWorking#commit-only-working-code
  - All commit messages should be clear and concise with no ambiguity
  - A commit message subject should always contain enough context to understand the actions of the developer and the impact 
  of the code contained in the commit, for more detail use the commit message body.
@@ -355,7 +358,7 @@ Each PR should be reviewed for coding standards, syntx issues, and of course dom
 Commenting on PR's can be tricky, too often developers can comment on PRs with little thought or concern for the person 
 recieving the comment. If the developer has spent alot of time working on it, some comments can feel quite grating and 
 can be taken to heart. Due to this, always make sure to do your best to convey tone of voice in a PR comment using emojis,
-and if you are trying to explain something particularly complex maybe even follow up the comment with a message on Teams.
+and if you are trying to explain something particularly complex maybe even follow up the comment with a message on Teams/Slack/Discord etc.
 
 Sometimes you may notice a mistake has been made in a PR which may have simply been an oversight and could potentially be
 slightly embaresing to mention publicly in PR comments. This can sometimes then be best to contact the developer directly via
@@ -380,36 +383,10 @@ git merge --no-ff branch-to-merge
 git branch -D branch-to-merge
 ```
 
-## Managing Internal Dependancies
-
-Managing internal dependancies can be tricky depending on your companies current workflow. Even using modern tools it still can 
-be a bit of a bottleneck on workflow and can be difficult to manage between the development team and the business.
-
-## Composer
-
-Ideally composer should be used to manage internal PHP dependancies. All dependancies should be listed in your composer.json
-file against a tag release of the relevant dependancy. dev-master should be avoided being used including avoiding using other
-development/feature/bugfix branches.
-
-The way this works is that if you have a main project that depends on another project of shared classes and you have worked
-on both projects to ultimatly create a feature on the main project then you must wait before your pull request on the 
-shared project is merged and added into a tag release so you can update the main projects composer.json files tag release.
-Once that is update that pull request can be merged into the main project.
-
-This avoids the main project ever ending up becoming broken due to invalid or old dependancies. During active 
-development of a feature dependancies should be symlinked in the vendor folder to avoid modifications of the composer.json
-file to include development branches. This also removes the risk of those changes being merged which would cause a failure
-as soon as the development branch is merged and removed. This symlinking process can sometimes cause issues with piplines, testing,
-and multiple developers working on 1 project so should be avoided in that scenario.
-
-## Disadvantages and Benefits
-
-The above composer details can stiffle workflow and slowdown getting jobs done fast, however it can seriously reduce
-error rates, and increase trust of application security in the live environments. 
-
 ## Code of Conduct
 
 - Generally be good to one another, and don't take life too seriously. 
 - Have time for your fellow developer and they will have time for you.
 - Respect other developers opinions and they may respect yours.
 - Remember that there is always someone out there you can learn from irregardless of yours or their level.
+
