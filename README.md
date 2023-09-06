@@ -5,22 +5,21 @@ in a small web development team and may or may not align to your ideas. The info
 of your chosen workflow (agile/waterfall, etc). 
 
 The purpose of this is purley because following publicly produced standards are a great idea on paper but in practise
-they either dont work in their entirity or they dont cover anything other than code syntax.
+they either dont work in their entirity or they dont cover anything other than code syntax, or management workflows. 
+It does not cover how the 2 are directly intertwined.
 
 Some ideas here may have the potential to be based soley on the personal opinion of the author, If you think that is the 
 case please choose to ignore it. Take from these ideas what you believe would work for you or your organisation.
 
-Although some of the rules below may be also fully or partially covered by standards in PHP-FIG, it is important to 
+Although some of the rules below may be also fully or partially covered by widley documented standards, it is important to 
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
 ignored.
-
->NOTE: This document assumes that somebody is looking to impliment ways of working and processes into their development
-team or project and do not already have one in place.
 
 ## Coding Standards
 
 > NOTE: All coding standards in this document are directed towards a **PHP development team**. A lot of the coding standards
-> are not needed or make no sense in other more comprihensive languages such as C++ or C#
+> are not needed or make no sense in other more comprihensive languages such as C++ or C#, the section below on Proceedures & Best Practises
+> can still be applied to other teams, and at least inspiration can be taken from this section for teams using other languages
 
 Development Teams should ideally all be on the same page and adhear to an agreed upon list of standards that benefit both the 
 development team and the business. These rules should not just blindly follow PSR rules however also integrate 
